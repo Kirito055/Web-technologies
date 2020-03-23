@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+	<style>
+        *{
+			box-sizing: border-box;
+            margin:0 ;
+            padding:0;
+		}
+        header{
+            padding: 30px 0;
+            
+        }
+
+        .version1{
+            background-color: rgba(0,0,0,0.05); 
+
+        }
+        
+    	.gridform{
+            width: 100%;
+    		display: grid;
+    		grid-template-columns: [labels] 20% [inputs] 1fr;
+    		grid-auto-flow:row;
+    		background-color: rgb(114, 209, 135);
+	        border:1px solid aqua;
+	        border-radius: 8px;
+	        padding: 10px 12px;
+
+    	}
+
+		.gridform > *{
+    		margin-top:15px;
+
+    	}
+
+    	.gridform>label{
+    		grid-column:labels;
+    		grid-row:auto;
+    		
+
+
+    	}
+
+    	.gridform>fieldset{
+	        grid-column: labels;
+	        text-align: center;
+	        grid-row: auto;
+	        grid-column: 1/3;
+	        border-radius: 10px;
+	        border:2px solid white;
+	       
+    	}
+    	
+    	.gridform>input[type='text'],
+		.gridform>input[type='email'],
+        .gridform>input[type='password'],
+        .gridform>.select{
+	        grid-column:inputs;
+	        grid-row: auto;
+	        padding-left: 7px;
+	        border:1px solid lightgrey;
+	        border-radius: 10px;
+      
+        }
+
+
+        .gridform>input[type='submit']{
+	        
+	        border:1px solid silver;
+	        border-radius: 8px;
+	        opacity: 0.6;
+	        font-size: 18px;
+	        padding: 10px 0;
+	        color: white;
+	        cursor: pointer;
+	        grid-column: 1/3;
+	     
+
+
+    	}
+
+	    .gridform>input[type='submit']:hover{
+	        opacity: 0.9;
+	        transition: 1.2s;
+	    }
+
+	    fieldset>div{
+    		display: flex;
+    		justify-content: space-around;
+    		padding: 5px 0;
+    	
+    	}
+		fieldset>div label {
+			width: 25%;
+		
+		}
+
+    	fieldset>div label input{
+    		margin-right: 5px; 
+        }
+        .version1>img{
+            width:100%;
+        }
+
+    	@media(max-width: 700px)
+    	{
+    		.gridform{
+				display: flex;
+				flex-direction: column;
+
+			}
+
+			fieldset>div{
+				flex-flow: row wrap;
+				justify-content: space-around;
+			}
+
+			fieldset>div label{
+				margin-bottom: 5px;
+				width: 100px;
+				text-align: left;
+			}
+
+
+    	}
+
+
+    .gridform,legend{
+        -webkit-transition:0.6s;
+        -moz-transition:0.6s;
+        -o-transition:0.6s;
+        transition:0.6s;
+    }
+
+    #ITgroup1,#ITgroup{
+        display: none;
+    }
+    </style>
+    
+
+
+</head>
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <header class="container-fluid bg-green border border-dark text-white">
+                    <form class='container-fluid' style="color: black; font-size: large;">
+
+                    <label for="vhod"><input type="radio" 
+                        id="vhod"  name="form" 
+                        onclick="change(this.id)" > Вход</label>
+                    <label for="vhod"><input type="radio" 
+                        id="register" name="form" 
+                        onclick="change(this.id)"> Регистрация</label>
+                     </form>
+             
+            </header>
+        </div>
+        <div class="row">
+            <div class="container-fluid py-3">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+              
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                    
+                        <div class="col-12 p-0">
+                            <form class="gridform" action="Проект.html" method="POST" onsubmit="return send()">
+                                <label for="fname" class="lol">Ваше имя:</label>
+                                <input type="text" id="fname" class="lol1" name="fname">
+
+                                <label for="telephone" class="lol2">Мобильный телефон</label>
+                                <input type="tel" id="telephone" class="lol3" name="telephone" pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email"  name="email">
+                                  <label for="bdate" class="lol5">День рождения:</label>
+                                <input type="date" id="bdate" class="lol6" name="bdate">
+                                <label for="password">Password</label>
+                                <div class="select" style="border:0px;">
+                                <input type="password" id="Password" name="password" style="width: 100%;" ></div>
+                               
+                        
+                                <fieldset class="lol7">
+                                    <div class="fieldset_labels"> 
+                                        <label><input type="radio"  id="bsdegree" name="degree" value="bsc">Юр.лицо</label>
+                                        <label><input type="radio" id="degree" name="degree" value="msc">Физ.лицо</label>
+                                    </div>
+                             
+                                </fieldset>
+                               
+                                <input type="submit" name="Submit" class='bg-primary font-weight-bold' id="submit1">
+                            </form>  
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+           
+
+        </div>
+    </div>
+    
+    </div>
+
+
+
+
+    
+  
+            
+                
+
+    <script >
+
+        
+        
+        
+        function change(form)
+        {
+            if(form == "vhod")
+            {
+                document.querySelector(".lol").style.display = "none";
+                document.querySelector(".lol1").style.display = "none";
+                document.querySelector(".lol2").style.display = "none";
+                document.querySelector(".lol3").style.display = "none";
+                document.querySelector(".lol5").style.display = "none";
+                document.querySelector(".lol6").style.display = "none";
+                document.querySelector(".lol7").style.display = "none";
+              
+               
+                                  
+            }
+            else if(form == "register")
+            {
+                document.querySelector(".lol").style.display= "block";
+                document.querySelector(".lol").style.display = "block";
+                document.querySelector(".lol1").style.display = "block";
+                document.querySelector(".lol2").style.display = "block";
+                document.querySelector(".lol3").style.display = "block";
+                document.querySelector(".lol5").style.display = "block";
+                document.querySelector(".lol6").style.display = "block";
+                document.querySelector(".lol7").style.display = "block";
+              
+            }
+        }
+        
+        
+
+
+function checkfirstsymbol(letters)
+{
+    let numbers=[1,2,3,4,5,6,7,8,9,0];
+
+    for(let l=0;l<numbers.length;l++)
+    {
+        if (letters[0]==numbers[l])
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
+}
+
+        
+        function send()
+        {
+            let fname = document.getElementById("fname").value;
+            let telephone = document.getElementById("telephone").value;
+            let email = document.getElementById("email").value;
+        
+            
+            if (fname.length<1){
+                alert("Пожалуйста введите имя");
+                return false;
+            }
+            else if(checkfirstsymbol(fname)==false)
+            {
+                alert("Нельзя использывать символы");
+                return false;
+            }
+        
+            else if (fname.length>12){
+        
+                alert("Не больше 12 символов");
+                return false;
+            }
+    
+                        if (telephone.length<1){
+                            
+        
+                            alert("Пожалуйста введите телефон Чтобы мы могли с вами связаться");
+                            return false;
+                        }
+        
+                        else if (telephone.length>32){
+                            alert("Не больше 32 символов");
+                            return false;
+                        }
+        
+                        else{
+                            if (email.length<1){
+                                alert("Пожалуйста введите Почту");
+                                return false;
+                            }
+                           
+                            else{
+                                return true;
+                            }
+                        }
+                        
+                }
+
+
+        
+    
+        
+        </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+
+ 
+
+</body>
+</html>
+
+
